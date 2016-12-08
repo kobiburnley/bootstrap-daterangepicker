@@ -1027,7 +1027,7 @@
             if (this.singleDatePicker || (this.endDate && (this.startDate.isBefore(this.endDate) || this.startDate.isSame(this.endDate)))) {
                 this.container.find('button.applyBtn').removeAttr('disabled');
             } else {
-                this.container.find('button.applyBtn').attr('disabled', 'disabled');
+                // this.container.find('button.applyBtn').attr('disabled', 'disabled');
             }
 
         },
@@ -1123,10 +1123,9 @@
         hide: function(e) {
             if (!this.isShowing) return;
 
-            //incomplete date selection, revert to last values
+            //incomplete date selection, selecting one day - set end date the same as start date
             if (!this.endDate) {
-                this.startDate = this.oldStartDate.clone();
-                this.endDate = this.oldEndDate.clone();
+                this.endDate = this.startDate.clone();
             }
 
             //if a new date range was selected, invoke the user callback function
